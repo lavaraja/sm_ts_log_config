@@ -3,11 +3,11 @@ This library adds functionality to configure TS_LOG_LEVEL for SageMaker PyTorch 
 
 **Existing model.tar.gz(sample):**
 ```
-sh-4.2$ tar -tvf model.tar.gz 
--rw-r--r-- ec2-user/ec2-user 251401 2021-09-26 07:55 model.pth ## your model weights
-drwxr-xr-x ec2-user/ec2-user      0 2025-03-09 22:48 code/
--rw-r--r-- ec2-user/ec2-user   1554 2025-03-09 20:58 code/inference.py
--rw-r--r-- ec2-user/ec2-user     72 2025-03-09 22:48 code/requirements.txt  ### add this new package requirement in your requirements.txt file.
+$ tar -tvf model.tar.gz
+model.pth ## your model weights
+code/
+code/inference.py
+code/requirements.txt  ### add this new package requirement in your requirements.txt file.
 ```
 **requirements.txt(sample):**
 ```
@@ -42,7 +42,7 @@ model = PyTorchModel(
     framework_version='2.1',
     py_version='py310',
     entry_point='inference.py',
-    env={'TS_LOG_LEVEL': log_level}
+    env={'TS_LOG_LEVEL': log_level} 
 )
 
 # Deploy the model 
